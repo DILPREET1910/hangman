@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 // lib imports
-import 'package:hangman_ieee_intromeet_2023/pages/home.dart';
+import 'package:hangman_ieee_intromeet_2023/pages/auth.dart';
 
 // firebase imports
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Home(),
+      home: Auth(),
     );
   }
 }
