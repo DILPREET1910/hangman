@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "908767967330",
+    "project_id": "hangman-ieee-intromeet-2023",
+    "storage_bucket": "hangman-ieee-intromeet-2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908767967330:android:c2f2823c8f4e902504b93b",
+        "android_client_info": {
+          "package_name": "com.example.hangman_ieee_intromeet_2023"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5MmEV8FLA_82na5Yr4d4xwkhOtHiPX7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
