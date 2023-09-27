@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// lib imports
+import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
+
 // google fonts imports
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,8 +26,7 @@ class _WidgetsTeamDropDownState extends State<WidgetsTeamDropDown> {
         context: context,
         builder: (context) {
           return AlertDialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15)),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
               backgroundColor: Colors.white,
               content: SizedBox(
                 width: 200,
@@ -36,12 +38,12 @@ class _WidgetsTeamDropDownState extends State<WidgetsTeamDropDown> {
                       onTap: () {
                         setState(() {
                           dropDownValue = teams[index];
+                          global.team = teams[index];
                         });
                         Navigator.pop(context);
                       },
                       child: ListTile(
-                        visualDensity:
-                            const VisualDensity(horizontal: 0, vertical: -1.5),
+                        visualDensity: const VisualDensity(horizontal: 0, vertical: -1.5),
                         leading: Icon(
                           Icons.group,
                           color: Colors.grey[600],

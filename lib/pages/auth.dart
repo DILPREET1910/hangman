@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 
 // lib imports
+import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
 import 'package:hangman_ieee_intromeet_2023/pages/home.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/hangmanTitle.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/textFormField.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/forAuth/dropDown.dart';
+import 'package:hangman_ieee_intromeet_2023/services/firestore.dart';
+
+// spin kit imports
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Auth extends StatefulWidget {
   const Auth({super.key});
@@ -14,6 +19,9 @@ class Auth extends StatefulWidget {
 }
 
 class _AuthState extends State<Auth> {
+  // firebase real time database instance
+  Firestore firestore = Firestore();
+
   // name TextField controller
   TextEditingController nameTextEditingController = TextEditingController();
 
@@ -54,10 +62,17 @@ class _AuthState extends State<Auth> {
                   // START: register button
                   SizedBox(height: MediaQuery.of(context).size.height / 20),
                   GestureDetector(
-                      onTap: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return Home();
+                      onTap: () async {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                          return FutureBuilder(
+                              future: firestore.incrementTeam(global.team),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState == ConnectionState.done) {
+                                  return const Home();
+                                } else {
+                                  return SpinKitCircle(color: Colors.grey[900]);
+                                }
+                              });
                         }));
                       },
                       child: Image.asset('assets/buttons/register.png'))
