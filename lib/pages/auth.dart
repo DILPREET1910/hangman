@@ -46,7 +46,7 @@ class _AuthState extends State<Auth> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // START: hangman title
-                  WidgetsHangmanTitle(),
+                  const WidgetsHangmanTitle(),
                   // END: hangman title
                   // START: name text form field
                   SizedBox(height: MediaQuery.of(context).size.height / 20),
