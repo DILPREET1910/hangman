@@ -65,19 +65,19 @@ class _QuestionsState extends State<Questions> {
                       // END: Guess The App text
                       // START: Question
                       SizedBox(height: MediaQuery.of(context).size.height / 25),
-                      global.questions(context)[2],
+                      global.questions(context)[global.questionIndex],
                       // END: Question
                       // START: Answer
                       SizedBox(height: MediaQuery.of(context).size.height / 25),
                       WidgetsAnswer(
-                        index: 2,
+                        index: global.questionIndex,
                         questionsSetState: questionsSetState,
                       ),
                       // END: Answer
                       // START: keyboard
                       SizedBox(height: MediaQuery.of(context).size.height / 25),
                       WidgetsKeyboard(
-                        index: 2,
+                        index: global.questionIndex,
                         questionsSetState: questionsSetState,
                       ),
                       SizedBox(height: MediaQuery.of(context).size.height / 25),

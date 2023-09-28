@@ -86,3 +86,5 @@ List<Map<String, bool>> answerGuessed = [
     'N': false,
   },
 ];
+
+int questionIndex = 0;
