@@ -24,6 +24,8 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
     ['V', 'W', 'Z', 'Y', 'Z']
   ];
 
+  Set<String> selectedAlphabets = {};
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -37,6 +39,9 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                               global.answerGuessed[widget.index][key] = true;
                               widget.questionsSetState(() {});
                             }
+                            setState(() {
+                              selectedAlphabets.add(key);
+                            });
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height / 20,
@@ -45,7 +50,11 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                                 vertical: MediaQuery.of(context).size.height / 200,
                                 horizontal: MediaQuery.of(context).size.height / 200),
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: selectedAlphabets.contains(key)
+                                  ? (global.answers[widget.index].contains(key)
+                                      ? Colors.green
+                                      : Colors.red)
+                                  : Colors.white,
                               borderRadius: BorderRadius.circular(2),
                             ),
                             child: Center(
