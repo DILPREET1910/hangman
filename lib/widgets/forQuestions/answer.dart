@@ -27,7 +27,7 @@ class _WidgetsAnswerState extends State<WidgetsAnswer> {
             child: Text(
               widget.alphabet,
               style: GoogleFonts.ubuntu(
-                  color: Colors.white, fontSize: MediaQuery.of(context).size.width / 13),
+                  color: Colors.white, fontSize: MediaQuery.of(context).size.height / 26),
             ),
           ),
         ),

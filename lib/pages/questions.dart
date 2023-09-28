@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
 import 'package:hangman_ieee_intromeet_2023/widgets/forQuestions/answer.dart';
+import 'package:hangman_ieee_intromeet_2023/widgets/forQuestions/keyboard.dart';
 
 // google fonts imports
 import 'package:google_fonts/google_fonts.dart';
@@ -50,28 +51,33 @@ class _QuestionsState extends State<Questions> {
                   ),
                   // END: Animation
                   // START: Guess The App text
-                  SizedBox(height: MediaQuery.of(context).size.height / 20),
+                  SizedBox(height: MediaQuery.of(context).size.height / 25),
                   Text(
                     "Guess The App",
                     style: GoogleFonts.ubuntu(
                         color: Colors.white,
-                        fontSize: 40,
+                        fontSize: MediaQuery.of(context).size.height / 18,
                         letterSpacing: 4,
                         fontWeight: FontWeight.w700),
                   ),
                   // END: Guess The App text
                   // START: Question
-                  SizedBox(height: MediaQuery.of(context).size.height / 20),
+                  SizedBox(height: MediaQuery.of(context).size.height / 25),
                   global.questions(context)[2],
                   // END: Question
                   // START: Answer
-                  SizedBox(height: MediaQuery.of(context).size.height / 20),
+                  SizedBox(height: MediaQuery.of(context).size.height / 25),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: global.answers[2]
                           .map((element) => WidgetsAnswer(alphabet: element))
                           .toList()),
                   // END: Answer
+                  // START: keyboard
+                  SizedBox(height: MediaQuery.of(context).size.height / 25),
+                  WidgetsKeyboard(),
+                  SizedBox(height: MediaQuery.of(context).size.height / 25),
+                  // END: keyboard
                 ],
               ),
             ),
