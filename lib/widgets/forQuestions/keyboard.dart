@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
+import 'package:hangman_ieee_intromeet_2023/pages/win.dart';
+import 'package:hangman_ieee_intromeet_2023/pages/lose.dart';
 
 // google fonts imports
 import 'package:google_fonts/google_fonts.dart';
@@ -42,6 +44,20 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                             setState(() {
                               selectedAlphabets.add(key);
                             });
+
+                            // checks after each click
+                            bool answered = true;
+                            global.answers[widget.index].forEach((element) {
+                              if (!selectedAlphabets.contains(element)) answered = false;
+                            });
+
+                            if (answered) {
+                              global.questionIndex++;
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return Win(index: widget.index);
+                              }));
+                            }
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height / 20,

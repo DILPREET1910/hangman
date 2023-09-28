@@ -87,7 +87,7 @@ class _LoseState extends State<Lose> {
                   // END: Win animation
                   // START: play or wait for admin
                   SizedBox(height: MediaQuery.of(context).size.height / 20),
-                  const WidgetsNextWait(start: false),
+                  const WidgetsNextWait(start: true),
                   // END: play or wait for admin
                 ],
               ),

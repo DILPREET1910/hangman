@@ -20,7 +20,7 @@ class WidgetsNextWait extends StatelessWidget {
       return GestureDetector(
         onTap: () {
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-            return Questions();
+            return const Questions();
           }));
         },
         child: Image.asset('assets/buttons/next.png'),

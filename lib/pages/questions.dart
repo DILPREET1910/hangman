@@ -45,7 +45,7 @@ class _QuestionsState extends State<Questions> {
                       Container(
                         width: MediaQuery.of(context).size.height / 2.2,
                         height: MediaQuery.of(context).size.height / 3.5,
-                        decoration: BoxDecoration(border: Border.all(color: Colors.white)),
+                        // decoration: BoxDecoration(border: Border.all(color: Colors.white)),
                         child: const RiveAnimation.asset(
                           'assets/rive/still.riv',
                           fit: BoxFit.fitWidth,
