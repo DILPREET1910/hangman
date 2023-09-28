@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+// lib imports
+import 'package:hangman_ieee_intromeet_2023/pages/questions.dart';
+
 // google fonts imports
 import 'package:google_fonts/google_fonts.dart';
 
@@ -14,7 +17,14 @@ class WidgetsPlayWait extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (start) {
-      return Image.asset('assets/buttons/play.png');
+      return GestureDetector(
+        onTap: () {
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+            return Questions();
+          }));
+        },
+        child: Image.asset('assets/buttons/play.png'),
+      );
     } else {
       return Column(
         children: [

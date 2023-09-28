@@ -36,9 +36,10 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   firebase_core: ^2.16.0
-  google_fonts: ^6.1.0
+  google_fonts: ^4.0.4
   flutter_spinkit: ^5.2.0
   cloud_firestore: ^4.9.2
+  rive: ^0.7.33
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,8 @@ flutter:
   assets:
     - assets/
     - assets/buttons/
+    - assets/ui/
+    - assets/rive/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
