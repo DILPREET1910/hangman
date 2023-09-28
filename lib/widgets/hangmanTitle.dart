@@ -12,7 +12,7 @@ class WidgetsHangmanTitle extends StatelessWidget {
       "HangMan",
       style: GoogleFonts.ubuntu(
         color: Colors.white,
-        fontSize: 60,
+        fontSize: MediaQuery.of(context).size.height / 13,
         fontWeight: FontWeight.w600,
         letterSpacing: 1,
       ),
