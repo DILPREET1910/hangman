@@ -8,8 +8,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 class WidgetsAnswer extends StatefulWidget {
   final int index;
+  final StateSetter questionsSetState;
 
-  const WidgetsAnswer({super.key, required this.index});
+  const WidgetsAnswer({super.key, required this.index, required this.questionsSetState});
 
   @override
   State<WidgetsAnswer> createState() => _WidgetsAnswerState();
@@ -32,7 +33,7 @@ class _WidgetsAnswerState extends State<WidgetsAnswer> {
                     ),
                     child: Center(
                       child: Text(
-                        alphabet,
+                        global.answerGuessed[widget.index][alphabet]! ? alphabet : "",
                         style: GoogleFonts.ubuntu(
                             color: Colors.white, fontSize: MediaQuery.of(context).size.height / 26),
                       ),

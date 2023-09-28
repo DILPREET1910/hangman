@@ -50,9 +50,39 @@ List<List<String>> answers = [
   ['A', 'M', 'A', 'Z', 'O', 'N'],
 ];
 
-List<List<bool>> answerGuessed = [
-  [false, false, false, false, false, false],
-  [false, false, false, false, false, false, false],
-  [false, false, false, false, false, false, false, false, false, false],
-  [false, false, false, false, false, false],
+List<Map<String, bool>> answerGuessed = [
+  {
+    'R': false,
+    'E': false,
+    'D': false,
+    'I': false,
+    'T': false,
+  },
+  {
+    'S': false,
+    'P': false,
+    'O': false,
+    'T': false,
+    'I': false,
+    'F': false,
+    'Y': false,
+  },
+  {
+    'D': false,
+    'I': false,
+    'G': false,
+    'L': false,
+    'O': false,
+    'C': false,
+    'K': false,
+    'E': false,
+    'R': false,
+  },
+  {
+    'A': false,
+    'M': false,
+    'Z': false,
+    'O': false,
+    'N': false,
+  },
 ];
