@@ -9,10 +9,10 @@ import 'package:google_fonts/google_fonts.dart';
 // spinkit imports
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class WidgetsPlayWait extends StatelessWidget {
+class WidgetsNextWait extends StatelessWidget {
   final bool start;
 
-  const WidgetsPlayWait({super.key, required this.start});
+  const WidgetsNextWait({super.key, required this.start});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +23,13 @@ class WidgetsPlayWait extends StatelessWidget {
             return Questions();
           }));
         },
-        child: Image.asset('assets/buttons/play.png'),
+        child: Image.asset('assets/buttons/next.png'),
       );
     } else {
       return Column(
         children: [
           Text(
-            "Waiting for admin to start the game",
+            "Waiting for admin to start next question",
             style: GoogleFonts.ubuntu(
               color: Colors.white,
               fontSize: MediaQuery.of(context).size.width / 20,

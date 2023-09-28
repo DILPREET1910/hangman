@@ -1,3 +1,4 @@
+import 'lose.dart';
 import 'package:flutter/material.dart';
 
 // lib imports
@@ -68,7 +69,7 @@ class _AuthState extends State<Auth> {
                               future: firestore.incrementTeam(global.team),
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState == ConnectionState.done) {
-                                  return const Home();
+                                  return Lose(index: 2);
                                 } else {
                                   return SpinKitCircle(color: Colors.grey[900]);
                                 }
