@@ -67,11 +67,7 @@ class _QuestionsState extends State<Questions> {
                   // END: Question
                   // START: Answer
                   SizedBox(height: MediaQuery.of(context).size.height / 25),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: global.answers[2]
-                          .map((element) => WidgetsAnswer(alphabet: element))
-                          .toList()),
+                  WidgetsAnswer(index: 2),
                   // END: Answer
                   // START: keyboard
                   SizedBox(height: MediaQuery.of(context).size.height / 25),

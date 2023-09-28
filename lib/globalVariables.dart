@@ -49,3 +49,10 @@ List<List<String>> answers = [
   ['D', 'I', 'G', 'I', 'L', 'O', 'C', 'K', 'E', 'R'],
   ['A', 'M', 'A', 'Z', 'O', 'N'],
 ];
+
+List<List<bool>> answerGuessed = [
+  [false, false, false, false, false, false],
+  [false, false, false, false, false, false, false],
+  [false, false, false, false, false, false, false, false, false, false],
+  [false, false, false, false, false, false],
+];
