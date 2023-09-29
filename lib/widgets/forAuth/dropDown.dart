@@ -38,6 +38,7 @@ class _WidgetsTeamDropDownState extends State<WidgetsTeamDropDown> {
                       onTap: () {
                         setState(() {
                           dropDownValue = teams[index];
+                          global.teamFlag =true;
                           global.team = teams[index];
                         });
                         Navigator.pop(context);

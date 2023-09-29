@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
@@ -27,6 +28,9 @@ class _AuthState extends State<Auth> {
 
   @override
   Widget build(BuildContext context) {
+    String alert = '';
+    bool alertFlag = false;
+    print(alert);
     return Stack(
       children: [
         // START: background image in stack
@@ -63,17 +67,41 @@ class _AuthState extends State<Auth> {
                   SizedBox(height: MediaQuery.of(context).size.height / 20),
                   GestureDetector(
                       onTap: () async {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-                          return FutureBuilder(
-                              future: firestore.incrementTeam(global.team),
-                              builder: (context, snapshot) {
-                                if (snapshot.connectionState == ConnectionState.done) {
-                                  return const Home();
-                                } else {
-                                  return SpinKitCircle(color: Colors.grey[900]);
-                                }
-                              });
-                        }));
+                        // name validation
+                        if (nameTextEditingController.toString() == "") {
+                          global.nameFlag = false;
+                        } else {
+                          global.nameFlag = true;
+                        }
+
+                        if (global.teamFlag && global.nameFlag) {
+                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+                            return FutureBuilder(
+                                future: firestore.incrementTeam(global.team),
+                                builder: (context, snapshot) {
+                                  if (snapshot.connectionState == ConnectionState.done) {
+                                    return const Home();
+                                  } else {
+                                    return SpinKitCircle(color: Colors.grey[900]);
+                                  }
+                                });
+                          }));
+                        } else if (!global.nameFlag && global.teamFlag) {
+                          // name not selected
+                          setState(() {
+                            alert = "select name";
+                          });
+                        } else if (!global.teamFlag && global.nameFlag) {
+                          // team not selected
+                          setState(() {
+                            alert = "select team";
+                          });
+                        } else {
+                          // both not selected
+                          setState(() {
+                            alert = "select name and team";
+                          });
+                        }
                       },
                       child: Image.asset('assets/buttons/register.png'))
                   // END: register button

@@ -287,3 +287,6 @@ Map<int, String> hangmanAnimation = {
   3: 'assets/rive/third.riv',
   4: 'assets/rive/fourth.riv',
 };
+
+bool teamFlag = false;
+bool nameFlag = false;
