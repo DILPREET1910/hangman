@@ -1,7 +1,10 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
+import 'package:hangman_ieee_intromeet_2023/pages/lose.dart';
+import 'package:hangman_ieee_intromeet_2023/services/firestore.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/forQuestions/answer.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/forQuestions/keyboard.dart';
 
@@ -19,6 +22,48 @@ class Questions extends StatefulWidget {
 }
 
 class _QuestionsState extends State<Questions> {
+  // firestore instance
+  Firestore firestore = Firestore();
+
+  // counter
+  Timer? counterTimer;
+  int counter = 45;
+  bool buttonPress = true;
+
+  void startTimer() {
+    counterTimer = Timer.periodic(Duration(seconds: 1), (timer) {
+      if (counter > 0) {
+        setState(() => counter--);
+      } else if (counter <= 0 && buttonPress) {
+        timer.cancel();
+        firestore.decrement(global.team);
+        firestore.decrement(global.team);
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Lose(index: global.questionIndex);
+        }));
+      }
+    });
+  }
+
+  // fade transition
+  Timer? fadeTimer;
+  bool show = true;
+
+  void fadeTransition() {
+    fadeTimer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      setState(() {
+        show = !show;
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    startTimer();
+    fadeTransition();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return StatefulBuilder(
@@ -33,6 +78,46 @@ class _QuestionsState extends State<Questions> {
               height: double.infinity,
             ),
             // END: background image in stack
+            // START: timer
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                      vertical: MediaQuery.of(context).size.height / 20,
+                      horizontal: MediaQuery.of(context).size.width / 20),
+                  child: CircularProgressIndicator(
+                    value: counter / 45,
+                    valueColor: const AlwaysStoppedAnimation(Colors.green),
+                    strokeWidth: 4,
+                    backgroundColor: Colors.transparent,
+                  ),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                      vertical: MediaQuery.of(context).size.height / 17,
+                      horizontal: MediaQuery.of(context).size.width / 14),
+                  child: Text(
+                    counter.toString(),
+                    style: show
+                        ? GoogleFonts.ubuntu(
+                            fontSize: MediaQuery.of(context).size.height / 50,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white,
+                          )
+                        : GoogleFonts.ubuntu(
+                            fontSize: MediaQuery.of(context).size.height / 50,
+                            color: Colors.transparent),
+                  ),
+                ),
+              ],
+            ),
+            // END: timer
             SafeArea(
               child: Scaffold(
                 backgroundColor: Colors.transparent,
