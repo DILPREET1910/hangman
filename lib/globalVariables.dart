@@ -88,3 +88,13 @@ List<Map<String, bool>> answerGuessed = [
 ];
 
 int questionIndex = 0;
+
+int wrongCounter = 0;
+
+Map<int, String> hangmanAnimation = {
+  0: 'assets/rive/still.riv',
+  1: 'assets/rive/first.riv',
+  2: 'assets/rive/second.riv',
+  3: 'assets/rive/third.riv',
+  4: 'assets/rive/fourth.riv',
+};

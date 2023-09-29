@@ -23,10 +23,17 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
     ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
     ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
     ['O', 'P', 'Q', 'R', 'S', 'T', 'U'],
-    ['V', 'W', 'Z', 'Y', 'Z']
+    ['V', 'W', 'X', 'Y', 'Z']
   ];
 
   Set<String> selectedAlphabets = {};
+
+  // set wrong counter to 0 after next question is loaded
+  @override
+  void initState() {
+    global.wrongCounter = 0;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +47,11 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                             if (global.answerGuessed[widget.index].containsKey(key)) {
                               global.answerGuessed[widget.index][key] = true;
                               widget.questionsSetState(() {});
+                            } else {
+                              global.wrongCounter++;
+                              widget.questionsSetState(() {});
                             }
+
                             setState(() {
                               selectedAlphabets.add(key);
                             });
@@ -56,6 +67,13 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return Win(index: widget.index);
+                              }));
+                            }
+                            if (global.wrongCounter == 4) {
+                              global.questionIndex++;
+                              Navigator.pushReplacement(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return Lose(index: widget.index);
                               }));
                             }
                           },
