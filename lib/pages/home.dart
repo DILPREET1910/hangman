@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/widgets/hangmanTitle.dart';
+import 'package:hangman_ieee_intromeet_2023/widgets/noGlow.dart';
 import 'package:hangman_ieee_intromeet_2023/widgets/forHome/playOrWaiting.dart';
-import 'package:hangman_ieee_intromeet_2023/widgets/forHome/noGlow.dart';
 import 'package:hangman_ieee_intromeet_2023/services/firestore.dart';
 
 // google fonts imports
