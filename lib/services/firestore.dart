@@ -5,11 +5,12 @@ import 'package:flutter/cupertino.dart';
 class Firestore {
   FirebaseFirestore firestoreInstance = FirebaseFirestore.instance;
 
-  // get start game status of admin
-  Future<bool> startGame() async {
-    DocumentSnapshot startGame = await firestoreInstance.collection("admin").doc("startGame").get();
-    bool start = startGame.get("start");
-    return start;
+  // get Next Question status
+  Future<bool> questionStatus(int questionNumber) async {
+    DocumentSnapshot documentSnapshot =
+        await firestoreInstance.collection("admin").doc("questions").get();
+    bool nextQuestion = documentSnapshot.get(questionNumber.toString());
+    return nextQuestion;
   }
 
   // increment team member count
