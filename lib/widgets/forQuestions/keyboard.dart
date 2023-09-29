@@ -63,14 +63,12 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                             });
 
                             if (answered) {
-                              global.questionIndex++;
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return Win(index: widget.index);
                               }));
                             }
                             if (global.wrongCounter == 4) {
-                              global.questionIndex++;
                               Navigator.pushReplacement(context,
                                   MaterialPageRoute(builder: (context) {
                                 return Lose(index: widget.index);

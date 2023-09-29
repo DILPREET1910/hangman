@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 // lib imports
+import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
 import 'package:hangman_ieee_intromeet_2023/pages/questions.dart';
 
 // google fonts imports
@@ -19,6 +20,7 @@ class WidgetsNextWait extends StatelessWidget {
     if (start) {
       return GestureDetector(
         onTap: () {
+          global.questionIndex++;
           Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
             return const Questions();
           }));
