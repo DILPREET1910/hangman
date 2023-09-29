@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 // lib imports
 import 'package:hangman_ieee_intromeet_2023/globalVariables.dart' as global;
+import 'package:hangman_ieee_intromeet_2023/services/firestore.dart';
 import 'package:hangman_ieee_intromeet_2023/pages/win.dart';
 import 'package:hangman_ieee_intromeet_2023/pages/lose.dart';
 
@@ -19,6 +20,9 @@ class WidgetsKeyboard extends StatefulWidget {
 }
 
 class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
+  // firestore instance
+  Firestore firestore = Firestore();
+
   List<List<String>> keys = [
     ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
     ['H', 'I', 'J', 'K', 'L', 'M', 'N'],
@@ -45,10 +49,13 @@ class _WidgetsKeyboardState extends State<WidgetsKeyboard> {
                     .map((key) => GestureDetector(
                           onTap: () {
                             if (global.answerGuessed[widget.index].containsKey(key)) {
+                              // if correct alphabet selected
                               global.answerGuessed[widget.index][key] = true;
                               widget.questionsSetState(() {});
                             } else {
+                              // if wrong alphabet selected
                               global.wrongCounter++;
+                              firestore.decrement(global.team);
                               widget.questionsSetState(() {});
                             }
 

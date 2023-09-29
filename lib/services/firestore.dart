@@ -25,4 +25,15 @@ class Firestore {
       print("Error while incrementing team: $error");
     }
   }
+
+  // decrement for wrong alphabet selected
+  Future<void> decrement(String team) async {
+    try {
+      await firestoreInstance.collection("teamCount").doc(team).update({
+        "score": FieldValue.increment(-200),
+      });
+    } on FirebaseException catch (error) {
+      print("Error while decrementing score: $error");
+    }
+  }
 }
