@@ -11,9 +11,6 @@ import 'package:hangman_ieee_intromeet_2023/widgets/forQuestions/keyboard.dart';
 // google fonts imports
 import 'package:google_fonts/google_fonts.dart';
 
-// rive imports
-import 'package:rive/rive.dart';
-
 class Questions extends StatefulWidget {
   const Questions({super.key});
 
@@ -131,8 +128,8 @@ class _QuestionsState extends State<Questions> {
                         width: MediaQuery.of(context).size.height / 2.2,
                         height: MediaQuery.of(context).size.height / 3.5,
                         // decoration: BoxDecoration(border: Border.all(color: Colors.white)),
-                        child: const RiveAnimation.asset(
-                          'assets/rive/still.riv',
+                        child: Image.asset(
+                          global.hangmanAnimation[global.wrongCounter]!,
                           fit: BoxFit.fitWidth,
                         ),
                       ),

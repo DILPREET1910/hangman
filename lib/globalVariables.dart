@@ -281,11 +281,11 @@ int questionIndex = 0;
 int wrongCounter = 0;
 
 Map<int, String> hangmanAnimation = {
-  0: 'assets/rive/still.riv',
-  1: 'assets/rive/first.riv',
-  2: 'assets/rive/second.riv',
-  3: 'assets/rive/third.riv',
-  4: 'assets/rive/fourth.riv',
+  0: 'assets/animation/still.png',
+  1: 'assets/animation/first.png',
+  2: 'assets/animation/second.png',
+  3: 'assets/animation/third.png',
+  4: 'assets/animation/fourth.png',
 };
 
 bool teamFlag = false;
