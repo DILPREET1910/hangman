@@ -1,5 +1,6 @@
 // firebase imports
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 
 class Firestore {
@@ -35,5 +36,26 @@ class Firestore {
     } on FirebaseException catch (error) {
       print("Error while decrementing score: $error");
     }
+  }
+
+  // get score
+  Future<List<int>> leaderboardScore() async {
+    List<int> result = [];
+    try {
+      for (int i = 1; i < 5; i++) {
+        DocumentSnapshot snapshot =
+            await firestoreInstance.collection("teamCount").doc("audi $i").get();
+        int count = snapshot.get("count");
+        int score = snapshot.get("score");
+        if (count != 0 && score != 0) {
+          result.add((score / count).round());
+        } else {
+          result.add(0);
+        }
+      }
+    } on FirebaseException catch (error) {
+      print("Error while calculating leader board score: $error");
+    }
+    return result;
   }
 }

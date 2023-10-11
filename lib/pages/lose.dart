@@ -123,11 +123,11 @@ class _LoseState extends State<Lose> {
                 ],
               );
             } else {
-              return const LeaderBoard();
+              return SpinKitCircle(color: Colors.grey[900]);
             }
           });
     } else {
-      return SpinKitCircle(color: Colors.grey[900]);
+      return const LeaderBoard();
     }
   }
 }
