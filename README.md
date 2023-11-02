@@ -1,8 +1,6 @@
-<!-- ABOUT THE PROJECT -->
-
 # HangMan
 
-[![Product-Text](assets/readme/product-screencast.gif)](assets/readme/product-screencast.gif) <!-- TODO: link to app release apk file, github -->
+[![Product-Text](assets/readme/product-screencast.gif)](https://github.com/DILPREET1910/hangman/releases)
 
 Hangman is a classic word-guessing game where players attempt to uncover a hidden word by suggesting
 letters one at a time. Each incorrect guess results in a step towards completing a hangman figure.
@@ -10,9 +8,9 @@ The challenge lies in guessing the word before the hangman is fully drawn.
 
 # Features
 
-- Admin app controlled. <!-- TODO: link to admin app repo-->
-- Applied backend for maintaining score.
-- Win + Lose animation.
+- [Admin app controlled](https://github.com/DILPREET1910/hangman-admin)
+- Applied backend for maintaining score
+- Win + Lose animation
 - Leader Board
 
 # Getting Started
@@ -44,9 +42,10 @@ answer.
 ## Usage
 
 If you prefer to use the application in its current state, you can find the user application in the
-[app releases section](null.com)<!-- TODO: link to app releases-->. Additionally, you'll need to
+[app releases section](https://github.com/DILPREET1910/hangman/releases). Additionally, you'll need
+to
 download the admin application
-from [this link](null.com)<!-- TODO: link to admin app, app releases -->.
+from [this link](https://github.com/DILPREET1910/hangman-admin/releases).
 Distribute the user app to all the participants who will be playing the game, while the game's
 control is managed through the admin app.
 
@@ -57,24 +56,23 @@ user/admin app, potentially affecting score and question access managed by the a
 </span>
 
 For a more controlled deployment, it's recommended to clone
-the [repository](null.com)<!-- TODO: link to clone repository section -->. Make sure to remove the
+the [repository](https://github.com/DILPREET1910/hangman#clone-repository). Make sure to remove the
 existing `android/app/google-services.json` file and replace it with the appropriate configuration
 file from your Firebase console/project.
 
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please feel
-free to [open an issue](null.com) or [create a pull request](null.com)
-<!--TODO: link to open issue and create pull request -->
+free to [open an issue](https://github.com/DILPREET1910/hangman/issues)
+or [create a pull request](https://github.com/DILPREET1910/hangman/pulls)
 
 # Acknowledgements
 
 flutter libraries used from [pub.dev](pub.dev)\
-[cupertino_icons](null.com)\
-[firebase_core](null.com)\
-[google_fonts](null.com)\
-[flutter_spinkit](null.com)\
-[cloud_firestore](null.com)\
-[rive](null.com)\
-[percent_indicator](null.com)
-<!-- TODO: link to pub dev-->
+[cupertino_icons](https://pub.dev/packages/cupertino_icons)\
+[firebase_core](https://pub.dev/packages/firebase_core)\
+[google_fonts](https://pub.dev/packages/google_fonts)\
+[flutter_spinkit](https://pub.dev/packages/flutter_spinkit)\
+[cloud_firestore](https://pub.dev/packages/cloud_firestore)\
+[rive](https://pub.dev/packages/rive)\
+[percent_indicator](https://pub.dev/packages/percent_indicator)
