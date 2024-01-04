@@ -68,7 +68,7 @@ or [create a pull request](https://github.com/DILPREET1910/hangman/pulls)
 
 # Acknowledgements
 
-flutter libraries used from [pub.dev](pub.dev)\
+flutter libraries used from [pub.dev](https://pub.dev)\
 [cupertino_icons](https://pub.dev/packages/cupertino_icons)\
 [firebase_core](https://pub.dev/packages/firebase_core)\
 [google_fonts](https://pub.dev/packages/google_fonts)\
